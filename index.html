@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Know Your Career — a private, interactive career exploration experience." />
+  <title>Know Your Career — Discover Your Direction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Know Your Career home">
+      <span class="brand-mark">✦</span>
+      <span>Know Your <b>Career</b></span>
+    </a>
+    <nav class="nav">
+      <a href="#how">How it works</a>
+      <button class="ghost-btn" id="privacyBtn">🔒 Privacy</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero page-section">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse-dot"></span> Your future is worth exploring</div>
+        <h1>Don’t just pick a career.<br><span>Discover your direction.</span></h1>
+        <p class="hero-text">
+          Answer thoughtful questions about what you enjoy, how you think, how you work,
+          and what you want to build. Get an <strong>exploration match</strong>, practical challenges,
+          and a simple roadmap to explore next.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn large" id="startBtn">Start exploring <span>→</span></button>
+          <a class="secondary-btn large" href="#how">See how it works</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ No sign-up</span>
+          <span>✓ No name or phone needed</span>
+          <span>✓ Runs in your browser</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="career-orb">
+          <div class="orb-core">✦</div>
+        </div>
+        <div class="float-card fc-one"><span>📊</span><div><b>Data</b><small>Find patterns</small></div></div>
+        <div class="float-card fc-two"><span>💻</span><div><b>Tech</b><small>Build solutions</small></div></div>
+        <div class="float-card fc-three"><span>🎨</span><div><b>Creative</b><small>Design ideas</small></div></div>
+        <div class="float-card fc-four"><span>🚀</span><div><b>Business</b><small>Make things happen</small></div></div>
+      </div>
+    </section>
+
+    <section id="how" class="how-section page-section">
+      <div class="section-heading">
+        <div class="eyebrow">A better way to explore</div>
+        <h2>More than a personality quiz.</h2>
+        <p>Know Your Career turns your answers into something you can actually use.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <h3>1. Understand yourself</h3>
+          <p>Explore your interests, strengths, work style, learning preferences and goals.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>2. See your matches</h3>
+          <p>Get several career directions instead of being pushed toward one “perfect” answer.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🧪</div>
+          <h3>3. Test the fit</h3>
+          <p>Try tiny real-world challenges before spending years studying a path.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🗺️</div>
+          <h3>4. Choose your next step</h3>
+          <p>Turn curiosity into a practical learning and portfolio roadmap.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quiz" class="quiz-section page-section hidden">
+      <div class="quiz-shell">
+        <div class="quiz-top">
+          <div>
+            <div class="eyebrow" id="quizSection">Getting to know you</div>
+            <div class="progress-meta"><span id="progressText">Question 1 of 28</span><span id="progressPercent">4%</span></div>
+          </div>
+          <button class="icon-btn" id="quitQuiz" title="Exit quiz" aria-label="Exit quiz">×</button>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+        <div class="quiz-card">
+          <div class="question-icon" id="questionIcon">🧠</div>
+          <div class="question-count" id="questionCount">01</div>
+          <h2 id="questionText"></h2>
+          <p class="question-hint" id="questionHint"></p>
+          <div class="answers" id="answers"></div>
+        </div>
+
+        <div class="quiz-bottom">
+          <button class="secondary-btn" id="backBtn">← Back</button>
+          <button class="text-btn" id="skipBtn">Not sure →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="loading" class="loading-section page-section hidden">
+      <div class="loading-card">
+        <div class="loading-orb">✦</div>
+        <div class="loading-spark">✧</div>
+        <h2>Connecting the dots...</h2>
+        <p>We’re turning your answers into career exploration signals.</p>
+        <div class="loading-bar"><div></div></div>
+        <small>This is guidance, not a scientific diagnosis or a guaranteed career prediction.</small>
+      </div>
+    </section>
+
+    <section id="results" class="results-section page-section hidden">
+      <div class="results-hero">
+        <div>
+          <div class="eyebrow">Your exploration snapshot</div>
+          <h1>Your direction is taking shape.</h1>
+          <p>These matches are starting points for exploration — not labels that define you.</p>
+        </div>
+        <div class="result-actions">
+          <button class="secondary-btn" id="copyBtn">⧉ Copy summary</button>
+          <button class="primary-btn" id="retakeBtn">↻ Retake</button>
+        </div>
+      </div>
+
+      <div class="results-grid">
+        <article class="top-match-card glass-card">
+          <div class="card-label">TOP EXPLORATION MATCH</div>
+          <div class="top-match-main">
+            <div class="score-ring" id="topRing"><div><b id="topScore">0%</b><small>match signal</small></div></div>
+            <div class="top-info">
+              <div class="career-title-line"><span id="topIcon">📊</span><h2 id="topCareer">Data Analyst</h2></div>
+              <p id="topDesc"></p>
+              <div class="tag-row" id="topTags"></div>
+            </div>
+          </div>
+          <div class="why-box">
+            <strong>Why this showed up</strong>
+            <p id="topWhy"></p>
+          </div>
+        </article>
+
+        <article class="profile-card glass-card">
+          <div class="card-label">YOUR SIGNALS</div>
+          <div id="profileBars" class="profile-bars"></div>
+          <p class="micro-note">Higher bars mean stronger signals from your answers. They are not grades.</p>
+        </article>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="matches">Matches</button>
+        <button class="tab" data-tab="compare">Compare</button>
+        <button class="tab" data-tab="challenges">Try a challenge</button>
+        <button class="tab" data-tab="roadmap">Roadmap</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-matches">
+        <div class="section-heading compact">
+          <div class="eyebrow">Keep your options open</div>
+          <h2>Your strongest directions</h2>
+          <p>Explore the top few before making a decision.</p>
+        </div>
+        <div class="match-list" id="matchList"></div>
+        <div class="disclaimer">
+          <span>💡</span>
+          <p><strong>Important:</strong> A quiz can’t know your whole future. Use these results to decide what to investigate, practice, and talk about with teachers, mentors, family, or professionals.</p>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-compare">
+        <div class="section-heading compact">
+          <div class="eyebrow">Side-by-side</div>
+          <h2>Compare two careers</h2>
+          <p>Sometimes the best answer is understanding the difference.</p>
+        </div>
+        <div class="compare-controls">
+          <label>Career A<select id="compareA"></select></label>
+          <span class="vs">VS</span>
+          <label>Career B<select id="compareB"></select></label>
+        </div>
+        <div class="compare-grid" id="compareGrid"></div>
+      </div>
+
+      <div class="tab-panel" id="panel-challenges">
+        <div class="section-heading compact">
+          <div class="eyebrow">Experience before deciding</div>
+          <h2>Mini challenges</h2>
+          <p>Spend 10–20 minutes trying the kind of thinking each path uses.</p>
+        </div>
+        <div class="challenge-grid" id="challengeGrid"></div>
+      </div>
+
+      <div class="tab-panel" id="panel-roadmap">
+        <div class="section-heading compact">
+          <div class="eyebrow">Your next chapter</div>
+          <h2 id="roadmapTitle">A simple roadmap</h2>
+          <p id="roadmapIntro"></p>
+        </div>
+        <div class="roadmap" id="roadmap"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal-backdrop" data-close="privacy"></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close="privacy">×</button>
+      <div class="feature-icon">🔒</div>
+      <h2 id="privacyTitle">Privacy first</h2>
+      <p>This prototype does not ask for your name, phone number, email, address, or other personal identifiers.</p>
+      <ul>
+        <li>Your quiz answers are processed in your browser.</li>
+        <li>No account is required.</li>
+        <li>Challenge completion is saved only on this device using browser storage.</li>
+        <li>This version has no built-in database or server.</li>
+      </ul>
+      <p class="micro-note">If you later connect this website to a backend, update this privacy notice to match what the new version actually collects.</p>
+      <button class="primary-btn full" data-close="privacy">Got it</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <footer>
+    <div class="footer-brand">✦ Know Your Career</div>
+    <p>Explore. Try. Learn. Choose with more confidence.</p>
+    <span>Built as a privacy-friendly static prototype.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
